@@ -7,172 +7,249 @@
     <meta name="description" content="الدكتورة أية فودة - استاذة العلوم والعلوم المتكاملة">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas"></canvas>
+
     <div class="poster" id="poster">
-        <!-- Layered Background Effects -->
-        <div class="bg-layer bg-gradient"></div>
-        <div class="bg-layer bg-noise"></div>
-        <div class="bg-layer bg-vignette"></div>
+        <!-- Animated Background Layers -->
+        <div class="bg-mesh"></div>
+        <div class="bg-vignette"></div>
 
-        <!-- Ambient Glow Orbs -->
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-        <div class="glow glow-3"></div>
-        <div class="glow glow-4"></div>
+        <!-- Animated Glow Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
 
-        <!-- Geometric Grid Pattern -->
-        <div class="grid-pattern"></div>
-
-        <!-- Floating Science Decorations -->
-        <div class="sci-deco sci-atom-1">
-            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1">
-                <ellipse cx="60" cy="60" rx="55" ry="20" transform="rotate(0 60 60)"/>
-                <ellipse cx="60" cy="60" rx="55" ry="20" transform="rotate(60 60 60)"/>
-                <ellipse cx="60" cy="60" rx="55" ry="20" transform="rotate(-60 60 60)"/>
-                <circle cx="60" cy="60" r="6" fill="currentColor" stroke="none"/>
+        <!-- Floating Science Icons -->
+        <div class="float-icon fi-1">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2">
+                <ellipse cx="60" cy="60" rx="50" ry="18" transform="rotate(0 60 60)"/><ellipse cx="60" cy="60" rx="50" ry="18" transform="rotate(60 60 60)"/><ellipse cx="60" cy="60" rx="50" ry="18" transform="rotate(-60 60 60)"/><circle cx="60" cy="60" r="5" fill="currentColor" stroke="none"/>
             </svg>
         </div>
-        <div class="sci-deco sci-atom-2">
-            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1">
-                <ellipse cx="60" cy="60" rx="55" ry="20" transform="rotate(30 60 60)"/>
-                <ellipse cx="60" cy="60" rx="55" ry="20" transform="rotate(90 60 60)"/>
-                <ellipse cx="60" cy="60" rx="55" ry="20" transform="rotate(-30 60 60)"/>
-                <circle cx="60" cy="60" r="5" fill="currentColor" stroke="none"/>
+        <div class="float-icon fi-2">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2">
+                <ellipse cx="60" cy="60" rx="50" ry="18" transform="rotate(30 60 60)"/><ellipse cx="60" cy="60" rx="50" ry="18" transform="rotate(90 60 60)"/><ellipse cx="60" cy="60" rx="50" ry="18" transform="rotate(-30 60 60)"/><circle cx="60" cy="60" r="4" fill="currentColor" stroke="none"/>
             </svg>
         </div>
-        <div class="sci-deco sci-helix">
+        <div class="float-icon fi-3">
             <svg viewBox="0 0 50 160" fill="none" stroke="currentColor" stroke-width="1.2">
                 <path d="M10,5 Q40,25 10,45 Q40,65 10,85 Q40,105 10,125 Q40,145 10,160"/>
                 <path d="M40,5 Q10,25 40,45 Q10,65 40,85 Q10,105 40,125 Q10,145 40,160"/>
-                <line x1="16" y1="15" x2="34" y2="15" opacity="0.4"/>
-                <line x1="16" y1="35" x2="34" y2="35" opacity="0.4"/>
-                <line x1="16" y1="55" x2="34" y2="55" opacity="0.4"/>
-                <line x1="16" y1="75" x2="34" y2="75" opacity="0.4"/>
-                <line x1="16" y1="95" x2="34" y2="95" opacity="0.4"/>
-                <line x1="16" y1="115" x2="34" y2="115" opacity="0.4"/>
-                <line x1="16" y1="135" x2="34" y2="135" opacity="0.4"/>
-                <line x1="16" y1="155" x2="34" y2="155" opacity="0.4"/>
             </svg>
         </div>
-        <div class="sci-deco sci-molecule">
+        <div class="float-icon fi-4">
             <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
-                <circle cx="50" cy="30" r="10"/>
-                <circle cx="25" cy="70" r="8"/>
-                <circle cx="75" cy="70" r="8"/>
-                <line x1="44" y1="38" x2="30" y2="63"/>
-                <line x1="56" y1="38" x2="70" y2="63"/>
-                <line x1="33" y1="70" x2="67" y2="70"/>
+                <circle cx="50" cy="28" r="10"/><circle cx="24" cy="68" r="8"/><circle cx="76" cy="68" r="8"/>
+                <line x1="44" y1="36" x2="29" y2="61"/><line x1="56" y1="36" x2="71" y2="61"/><line x1="32" y1="68" x2="68" y2="68"/>
             </svg>
         </div>
 
-        <!-- Top Accent Bar -->
+        <!-- Top Accent Bar (animated) -->
         <div class="top-bar"></div>
         <div class="bottom-bar"></div>
 
-        <!-- Corner Frames -->
-        <div class="frame frame-tl"></div>
-        <div class="frame frame-tr"></div>
-        <div class="frame frame-bl"></div>
-        <div class="frame frame-br"></div>
+        <!-- Animated Corner Frames -->
+        <div class="corner c-tl"></div>
+        <div class="corner c-tr"></div>
+        <div class="corner c-bl"></div>
+        <div class="corner c-br"></div>
 
-        <!-- ============ CONTENT ============ -->
+        <!-- ========== CONTENT ========== -->
         <div class="content">
 
             <!-- Announcement Badge -->
-            <div class="announce-badge">
-                <div class="badge-glow"></div>
-                <span class="badge-label">تُعلن</span>
-            </div>
-
-            <!-- Name Section -->
-            <div class="name-section">
-                <span class="pre-title">الدكتورة</span>
-                <h1 class="doctor-name">أيــة فــودة</h1>
-            </div>
-
-            <!-- Elegant Separator -->
-            <div class="separator">
-                <div class="sep-line"></div>
-                <div class="sep-diamond">
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 1.74.5 3.37 1.41 4.84.95 1.54 2.2 2.86 3.16 4.4.47.75.81 1.45 1.17 2.26.1.24.34.5.26.5s.16-.26.26-.5c.36-.81.7-1.51 1.17-2.26.96-1.54 2.21-2.86 3.16-4.4C16.5 12.37 17 10.74 17 9c0-3.87-3.13-7-7-7z"/>
-                        <circle cx="12" cy="9" r="2.5"/>
-                    </svg>
+            <div class="anim-item badge-wrap" data-delay="0">
+                <div class="badge">
+                    <div class="badge-shimmer"></div>
+                    <span>تُعلن</span>
                 </div>
-                <div class="sep-line"></div>
             </div>
 
-            <!-- Subject Section -->
-            <div class="subject-section">
-                <span class="subject-label">أستاذة</span>
-                <h2 class="subject-name">العلوم و العلوم المتكاملة</h2>
+            <!-- Doctor Name -->
+            <div class="anim-item name-block" data-delay="1">
+                <span class="pre-name">الدكتورة</span>
+                <h1 class="the-name">
+                    <span class="name-char" style="--i:0">أ</span><span class="name-char" style="--i:1">يـ</span><span class="name-char" style="--i:2">ـة</span><span class="name-spacer"></span><span class="name-char" style="--i:3">فـ</span><span class="name-char" style="--i:4">ـو</span><span class="name-char" style="--i:5">دة</span>
+                </h1>
+                <div class="name-glow-line"></div>
             </div>
 
-            <!-- Year / Booking Section -->
-            <div class="booking-section">
-                <div class="booking-label">
-                    <span class="sparkle">✦</span>
-                    بدأ الحجز لعام
-                    <span class="sparkle">✦</span>
+            <!-- Animated Separator -->
+            <div class="anim-item sep-wrap" data-delay="2">
+                <div class="sep">
+                    <div class="sep-line sep-line-r"></div>
+                    <div class="sep-icon">🔬</div>
+                    <div class="sep-line sep-line-l"></div>
                 </div>
-                <div class="year-row">
-                    <span class="year-num">٢٠٢٦</span>
-                    <span class="year-dash">⟶</span>
-                    <span class="year-num">٢٠٢٧</span>
+            </div>
+
+            <!-- Subject -->
+            <div class="anim-item subject-block" data-delay="3">
+                <span class="subj-label">أستاذة</span>
+                <h2 class="subj-name">العلوم والعلوم المتكاملة</h2>
+            </div>
+
+            <!-- Booking -->
+            <div class="anim-item booking-block" data-delay="4">
+                <div class="book-label">
+                    <span class="star star-r">✦</span>
+                    <span>بدأ الحجز لعام</span>
+                    <span class="star star-l">✦</span>
+                </div>
+                <div class="years">
+                    <span class="yr" data-num="٢٠٢٦">٢٠٢٦</span>
+                    <span class="yr-arrow">
+                        <svg width="36" height="20" viewBox="0 0 36 20" fill="none">
+                            <path d="M0 10H32M32 10L24 3M32 10L24 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="yr" data-num="٢٠٢٧">٢٠٢٧</span>
                 </div>
             </div>
 
             <!-- Features -->
-            <div class="features">
-                <div class="feat">
-                    <span class="feat-dot"></span>
-                    <span class="feat-txt">شرح مبسط وسهل</span>
+            <div class="features-grid">
+                <div class="anim-item feat" data-delay="5">
+                    <div class="feat-marker"><div class="feat-pulse"></div></div>
+                    <span>شرح مبسط وسهل</span>
                 </div>
-                <div class="feat">
-                    <span class="feat-dot"></span>
-                    <span class="feat-txt">تأسيس وتقوية</span>
+                <div class="anim-item feat" data-delay="5.5">
+                    <div class="feat-marker"><div class="feat-pulse"></div></div>
+                    <span>تأسيس وتقوية</span>
                 </div>
-                <div class="feat">
-                    <span class="feat-dot"></span>
-                    <span class="feat-txt">امتحانات دورية</span>
+                <div class="anim-item feat" data-delay="6">
+                    <div class="feat-marker"><div class="feat-pulse"></div></div>
+                    <span>امتحانات دورية</span>
                 </div>
-                <div class="feat">
-                    <span class="feat-dot"></span>
-                    <span class="feat-txt">مراجعات مستمرة</span>
+                <div class="anim-item feat" data-delay="6.5">
+                    <div class="feat-marker"><div class="feat-pulse"></div></div>
+                    <span>مراجعات مستمرة</span>
                 </div>
-                <div class="feat">
-                    <span class="feat-dot"></span>
-                    <span class="feat-txt">متابعة مع ولي الأمر</span>
+                <div class="anim-item feat" data-delay="7">
+                    <div class="feat-marker"><div class="feat-pulse"></div></div>
+                    <span>متابعة مع ولي الأمر</span>
                 </div>
             </div>
 
-            <!-- Contact Area -->
-            <div class="contact-area">
-                <div class="contact-card phone-card">
-                    <div class="c-icon-box green-icon">
-                        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                        </svg>
+            <!-- Contact -->
+            <div class="contact-zone">
+                <div class="anim-item ccard phone-ccard" data-delay="8">
+                    <div class="ccard-border"></div>
+                    <div class="ccard-inner">
+                        <div class="ccard-icon green-ci">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            <div class="ring-pulse"></div>
+                        </div>
+                        <span class="phone-text">01004487912</span>
                     </div>
-                    <span class="c-text phone-num">01004487912</span>
                 </div>
-                <div class="contact-card loc-card">
-                    <div class="c-icon-box gold-icon">
-                        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                    </div>
-                    <div class="c-text loc-text">
-                        <span>شارع أ/ محمد عبدالهادي</span>
-                        <span class="loc-sub">منزل الحاج/ ابراهيم الشناوي</span>
+                <div class="anim-item ccard loc-ccard" data-delay="8.5">
+                    <div class="ccard-border"></div>
+                    <div class="ccard-inner">
+                        <div class="ccard-icon gold-ci">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <div class="pin-bounce"></div>
+                        </div>
+                        <div class="loc-lines">
+                            <span class="loc-main">شارع أ/ محمد عبدالهادي</span>
+                            <span class="loc-sub">منزل الحاج/ ابراهيم الشناوي</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <script>
+    // ============ PARTICLE SYSTEM ============
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const PARTICLE_COUNT = 60;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor() { this.reset(); }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.4;
+            this.speedY = (Math.random() - 0.5) * 0.4;
+            this.opacity = Math.random() * 0.4 + 0.1;
+            this.hue = Math.random() > 0.5 ? 170 : 45; // teal or gold
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(20, 184, 166, ${0.06 * (1 - dist / 120)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // ============ SCROLL ENTRANCE ANIMATIONS ============
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = parseFloat(entry.target.dataset.delay || 0) * 0.18;
+                entry.target.style.animationDelay = `${delay}s`;
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.anim-item').forEach(el => observer.observe(el));
+
+    // ============ NAME LETTER ANIMATION ============
+    document.querySelectorAll('.name-char').forEach((ch, i) => {
+        ch.style.animationDelay = `${0.6 + i * 0.12}s`;
+    });
+    </script>
 </body>
 </html>
