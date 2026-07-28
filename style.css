@@ -620,16 +620,23 @@ body {
     -webkit-mask-composite: xor;
     mask-composite: exclude;
 }
-.phone-ccard .ccard-border {
+.wa-ccard .ccard-border {
     background: linear-gradient(135deg, var(--green), var(--teal), var(--green), var(--teal));
+    background-size: 300% 300%;
+}
+.phone-ccard .ccard-border {
+    background: linear-gradient(135deg, var(--cyan), #3b82f6, var(--cyan), #3b82f6);
     background-size: 300% 300%;
 }
 .loc-ccard .ccard-border {
     background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold), var(--gold-light));
     background-size: 300% 300%;
 }
-.phone-ccard:hover {
+.wa-ccard:hover {
     box-shadow: 0 8px 30px -5px rgba(34, 197, 94, 0.15);
+}
+.phone-ccard:hover {
+    box-shadow: 0 8px 30px -5px rgba(59, 130, 246, 0.15);
 }
 .loc-ccard:hover {
     box-shadow: 0 8px 30px -5px rgba(212, 175, 55, 0.15);
@@ -645,7 +652,7 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 18px 30px;
+    padding: 16px 28px;
     border-radius: 18px;
     background: var(--navy);
 }
@@ -664,6 +671,10 @@ body {
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(34, 197, 94, 0.06));
     color: var(--green);
 }
+.blue-ci {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0.06));
+    color: #3b82f6;
+}
 .gold-ci {
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(212, 175, 55, 0.06));
     color: var(--gold);
@@ -677,6 +688,9 @@ body {
     border: 2px solid var(--green);
     animation: ringPulse 2s ease-out infinite;
     opacity: 0;
+}
+.ring-blue {
+    border-color: #3b82f6;
 }
 @keyframes ringPulse {
     0% { transform: scale(1); opacity: 0.5; }
@@ -701,10 +715,29 @@ body {
     50% { transform: translateX(-50%) scale(0.6); opacity: 0.6; }
 }
 
-/* Contact texts */
+/* Contact text wrapper */
+.wa-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.wa-label {
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 1px;
+}
+.ph-label {
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #3b82f6;
+    letter-spacing: 1px;
+}
 .phone-text {
     font-family: 'Cairo', sans-serif;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 800;
     color: rgba(226, 232, 240, 0.95);
     letter-spacing: 3px;
@@ -714,17 +747,24 @@ body {
 .loc-lines {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 2px;
+}
+.loc-area {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--teal);
+    letter-spacing: 1px;
 }
 .loc-main {
     font-family: 'Cairo', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: rgba(226, 232, 240, 0.95);
 }
 .loc-sub {
     font-family: 'Cairo', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: rgba(212, 175, 55, 0.7);
 }
